@@ -1,0 +1,17 @@
+{
+  "name": "certchain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CertChain - Blockchain Certificate Verification System",
+  "scripts": {
+    "dev": "concurrently -k -n node,deploy,server,frontend -c blue,yellow,green,magenta \"npm run dev:node\" \"npm run dev:deploy\" \"npm run dev:server\" \"npm run dev:frontend\"",
+    "dev:node": "cd certchain-contract && npx hardhat node",
+    "dev:deploy": "node scripts/wait-and-deploy.js",
+    "dev:server": "node scripts/wait-for-deploy.js && cd certchain-server && npm run dev",
+    "dev:frontend": "cd certchain-frontend && npm run dev",
+    "install:all": "cd certchain-contract && npm install && cd ../certchain-server && npm install && cd ../certchain-frontend && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
