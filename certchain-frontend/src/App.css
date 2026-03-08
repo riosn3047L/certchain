@@ -1,0 +1,10 @@
+/* App level overrides if any */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
